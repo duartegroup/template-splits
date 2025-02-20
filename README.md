@@ -42,6 +42,7 @@ Templates must be extracted from the intermediate datasets `data/raw/2_uspto.csv
 #### 3. Training
 
 All configuration files used to train the models in the paper are provided. Models were trained according to their respective packages:
-    LocalRetro: https://github.com/kaist-amsg/LocalRetro (since removed by the authors)
-    MEGAN: https://github.com/molecule-one/megan 
-    RootAligned: https://github.com/otori-bird/retrosynthesis
+
+- LocalRetro: https://github.com/kaist-amsg/LocalRetro (since removed by the authors)
+- MEGAN: https://github.com/molecule-one/megan 
+- RootAligned: https://github.com/otori-bird/retrosynthesis
