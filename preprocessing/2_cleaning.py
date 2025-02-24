@@ -225,7 +225,7 @@ def size_filter(rxn):
     
 def clean_dataset(dataset_name):
     df = pd.read_csv(f"data/raw/1_{dataset_name}.csv", index_col="dataset_id")
-    df = df.head(1000)
+
     print("Full dataset size: ", len(df))
 
     df = df[df["rxn_map"].str.count(">")==2]
