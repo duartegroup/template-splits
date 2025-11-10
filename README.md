@@ -1,13 +1,13 @@
 # template-splits
 
-Code to complement our paper: An exploration of dataset importance in single-step retrosynthesis prediction. 
+Code to complement our paper: An exploration of dataset importance in single-step retrosynthesis prediction. [preprint](https://chemrxiv.org/engage/chemrxiv/article-details/6865bb52c1cb1ecda0c4e841)
 
 This repository contains the code for cleaning and splitting USPTO and Pistachio datasets based on templates, as well as the configuration files used to train models used in the paper.
 
 ## 1. Installation/Setup
 
 1. Clone the repository:
-    `git clone git@github.com:saratanov/template-splits.git`
+    `git clone https://github.com/duartegroup/template-splits.git`
 2. Install the required Python environment using the provided yaml file:  
     `conda env create -f envs/environment.yml`
 3. Activate environment:
@@ -29,15 +29,17 @@ As Pistachio is a proprietary database owned by NextMove Software, we do not pro
 
 `2_cleaning.py`: Cleans and filters atom-mapped reaction strings for the initialised USPTO and Pistachio datasets according to the steps detailed in S1.
 
-### 2.3 Template filtering
+### 2.3 Template extraction
 
-Templates must be extracted from the intermediate datasets `data/raw/2_uspto.csv` and `data/raw/2_pistachio.csv` prior to running the following script. We do this using the LocalTemplate module of LocalRetro: https://github.com/kaist-amsg/LocalRetro. This can also be done with alternative template extractors, such as RDChiral: https://github.com/connorcoley/rdchiral. Template SMARTS must be stored in a column named 'template'.
+`3_template_extracting`: Extracts templates from USPTO and Pistachio via the LocalTemplate algorithm. The module for this algorithm was obtained from the original respository (https://github.com/kaist-amsg/LocalRetro) in February 2024 when it was licensed under Apache 2.0; subsequent removal by original authors does not affect this version’s licence. We have redistributed the necessary scripts for reproducibility here under the directory `preprocessing/LocalTemplate`.
 
-`3_template_filtering.py`: Filters USPTO and Pistachio by the number of template occurrences, removing all templates with less than 5 or 20 reactions respectively.
+### 2.4 Template filtering
 
-### 2.4 Template splitting
+`4_template_filtering.py`: Filters USPTO and Pistachio by the number of template occurrences, removing all templates with less than 5 or 20 reactions respectively.
 
-`4_template_splitting.py`: Splits the USPTO dataset via the narrow and broad template splitting strategies, as detailed in the paper. Splits the Pistachio dataset into two 10k reaction test sets, where the ID and OOD test sets contains templates present or not present in USPTO respectively.
+### 2.5 Template splitting
+
+`5_template_splitting.py`: Splits the USPTO dataset via the narrow and broad template splitting strategies, as detailed in the paper. Splits the Pistachio dataset into two 10k reaction test sets, where the ID and OOD test sets contains templates present or not present in USPTO respectively.
 
 #### 3. Training
 

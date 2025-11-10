@@ -2,3 +2,4 @@
 *.tsv
 *.gz
 *.smi
+preprocessing/LocalTemplate/__pycache__

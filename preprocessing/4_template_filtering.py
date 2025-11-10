@@ -1,11 +1,5 @@
 """
 Filters USPTO and Pistachio by the number of template occurrences.
-
-Note: Both datasets must have their templates extracted between
-      2_cleaning.py and this script, with templates saved in a
-      column named 'template' in data/raw/2_{dataset}.csv. This
-      is done via the LocalTemplate extractor algorithm in
-      LocalRetro: https://github.com/kaist-amsg/LocalRetro.
 """
 
 import pandas as pd

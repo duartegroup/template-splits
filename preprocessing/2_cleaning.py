@@ -3,19 +3,13 @@ Cleans and filters atom-mapped reaction strings for the initialised USPTO and
 Pistachio datasets.
 """
 
-import os
-import requests
-import tarfile
 import pandas as pd
-import numpy as np
 import re
-import tarfile
 from rdkit import Chem
 from rdkit.Chem.rdChemReactions import ReactionFromSmarts, ReactionToSmiles
 from rdkit.Chem import Draw
 from rxn.chemutils.reaction_equation import (
     canonicalize_compounds,
-    merge_reactants_and_agents,
     sort_compounds,
     cleanup_compounds
 )
@@ -24,7 +18,6 @@ from rxn.chemutils.reaction_smiles import (
     parse_extended_reaction_smiles,
     to_reaction_smiles,
 )
-from rxn.chemutils.utils import remove_atom_mapping
 from pandarallel import pandarallel
 from rdkit.Chem.rdMolDescriptors import CalcNumHeavyAtoms
 import argparse

@@ -13,7 +13,6 @@ import tarfile
 from rxn.chemutils.utils import remove_atom_mapping
 
 from rxnmapper import RXNMapper
-import pandas as pd
 from rxn.chemutils.utils import remove_atom_mapping
 from tqdm import tqdm
 import argparse
